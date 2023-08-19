@@ -1,0 +1,34 @@
+<tui-root>
+  <div tuiGroup class="tui-space_bottom-6">
+    <button tuiButton (click)="expandAll({expand: false})">Collapse all</button>
+    <button tuiButton (click)="expandAll({expand: true})">Expand all</button>
+  </div>
+
+  <test [value]="expand$ | async"></test>
+
+  <tui-accordion class="container" [closeOthers]="false">
+    <tui-accordion-item [open]="(expand$ | async)?.expand">
+      Taiga UI cdk
+      <ng-template tuiAccordionItemContent>
+        Development kit consisting of the low level tools and abstractions used
+        to develop Taiga UI Angular entities
+      </ng-template>
+    </tui-accordion-item>
+    <tui-accordion-item [open]="(expand$ | async)?.expand">
+      Taiga UI core
+      <ng-template tuiAccordionItemContent>
+        <div #content>
+          Basic elements needed to develop components, directives and more using
+          Taiga UI design system
+        </div>
+      </ng-template>
+    </tui-accordion-item>
+    <tui-accordion-item [open]="(expand$ | async)?.expand">
+      Taiga UI kit
+      <ng-template tuiAccordionItemContent>
+        The main set of components used to build Taiga UI based Angular
+        applications
+      </ng-template>
+    </tui-accordion-item>
+  </tui-accordion>
+</tui-root>
